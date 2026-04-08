@@ -1,16 +1,35 @@
 import { useGetUserProjects } from "@/api_hooks/project.hooks";
 import CustomButton from "@/components/ui/custom_button/custom_button";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 
 const VideosListScreen = () => {
   const { data } = useGetUserProjects();
 
+  const [healthCheck, setHealthCheck] = useState(null);
+
+  const getHealthCheck = async () => {
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/health`);
+      const data = await res.json();
+      setHealthCheck(data.message);
+    } catch (error) {
+      setHealthCheck(error.message);
+    }
+  }
+
+  useEffect(() => {
+    getHealthCheck()
+  }, [])
+
   return (
     <div>
       <CustomButton href={"/videos/create"}>Create Video</CustomButton>
       <hr />
+      {
+        healthCheck
+      }
       <div>
         <Row>
           {data?.success &&
@@ -22,7 +41,7 @@ const VideosListScreen = () => {
                   md={3}
                   style={{
                     marginBottom: "20px",
-                    height:'100%'
+                    height: '100%'
                   }}
                 >
                   <Link href={`/videos/create?id=${project.id}`}>

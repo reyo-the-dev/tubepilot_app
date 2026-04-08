@@ -14,6 +14,7 @@ import {
 import { toast } from "react-toastify";
 import CustomOptionGroup from "@/components/ui/custom_option_group/custom_option_group";
 import { useRouter } from "next/router";
+import ScriptPreview from "@/components/common/script_preview/script_preview";
 
 const GenerateScriptStep = ({
   currentStepIndex,
@@ -191,59 +192,7 @@ const GenerateScriptStep = ({
       )}
 
       {script && (
-        <CustomBox title={"Script Preview"} icon={<CardList />} isWhite={false}>
-          <CustomBox>
-            <p>
-              <b>Title: </b>
-              <CustomInput value={script.title} />
-            </p>
-            <br />
-            <p>
-              <b>Scene Count: </b>
-              {script.scenes.length}
-            </p>
-            <p>
-              <b>Duration: </b>
-              {script.duration} Secs
-            </p>
-          </CustomBox>
-          <hr />
-          {script.scenes.map((script) => {
-            return (
-              <>
-                <CustomBox
-                  key={`script_row_${script.scene_number}`}
-                  title={`Scene ${script.scene_number}`}
-                  icon={<CardList />}
-                  leftBorder
-                  right={
-                    <PencilSquare
-                      size={20}
-                      color="grey"
-                      style={{
-                        cursor: "pointer",
-                      }}
-                    />
-                  }
-                >
-                  <CustomInput
-                    value={script.text}
-                    label={"Scene Text: "}
-                    disabled
-                  />
-                  <br />
-
-                  <CustomInput
-                    value={script.image_prompt}
-                    label={"Image Prompt: "}
-                    disabled
-                  />
-                </CustomBox>
-                <hr />
-              </>
-            );
-          })}
-        </CustomBox>
+        <ScriptPreview script={script} />
       )}
 
       {script && (

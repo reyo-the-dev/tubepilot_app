@@ -1,0 +1,138 @@
+.createVideoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  animation: fadeIn 0.4s ease-out;
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+.stepperContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.05); // assuming dark theme
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  .stepItem {
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex: 1;
+
+    // No connector after the last item
+    &:last-child {
+      flex: 0;
+      .stepConnector {
+        display: none;
+      }
+    }
+
+    .stepIcon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+
+    .stepLabel {
+      margin-left: 15px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 15px;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .stepConnector {
+      flex: 1;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.1);
+      margin: 0 20px;
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+        transition: width 0.5s ease;
+      }
+    }
+
+    &.active {
+      .stepIcon {
+        background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+        color: white;
+        box-shadow: 0 0 15px rgba(108, 92, 231, 0.5);
+        transform: scale(1.1);
+      }
+      .stepLabel {
+        color: #fff;
+        font-weight: 600;
+      }
+    }
+
+    &.completed {
+      .stepIcon {
+        background: #00b894;
+        color: white;
+      }
+      .stepLabel {
+        color: #dfe6e9;
+      }
+      .stepConnector::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.stepContent {
+  animation: slideUp 0.4s ease-out forwards;
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@media (max-width: 768px) {
+  .stepperContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+
+    .stepItem {
+      width: 100%;
+      display: flex;
+      
+      .stepConnector {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,7 +1,182 @@
 .GenerateVideoStep {
+  text-align: center;
+  padding: 30px;
+
   .cta {
-    min-height: 500px;
-    @include flexCenter;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
+    animation: fadeIn 0.5s ease-out;
+
+    .iconWrapper {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: rgba(108, 92, 231, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+      color: #6c5ce7;
+      box-shadow: 0 0 30px rgba(108, 92, 231, 0.2);
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
+
+    .generateBtn {
+      font-size: 18px;
+      padding: 12px 30px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+      border: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(108, 92, 231, 0.4);
+      }
+    }
+  }
+
+  .generatingState {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    animation: fadeIn 0.5s ease-out;
+
+    .spinnerWrapper {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+
+      .pulseGlow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #6c5ce7, #00cec9);
+        animation: pulse 2s infinite;
+        opacity: 0.5;
+        z-index: 1;
+      }
+
+      .magicIcon {
+        position: relative;
+        z-index: 2;
+        color: white;
+        animation: float 3s ease-in-out infinite;
+      }
+    }
+
+    .generatingTitle {
+      font-size: 24px;
+      font-weight: 600;
+      color: transparent;
+      background: linear-gradient(90deg, #fff, #a29bfe);
+      background-clip: text;
+      -webkit-background-clip: text;
+      margin-bottom: 10px;
+    }
+
+    .generatingSubtitle {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 16px;
+    }
+  }
+
+  .videoPreviewContainer {
+    animation: slideUp 0.5s ease-out;
+    margin-top: 20px;
+
+    .videoHeader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 25px;
+
+      h3 {
+        font-size: 22px;
+        color: #fff;
+        margin: 0;
+      }
+    }
+
+    .videoWrapper {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #000;
+      max-width: 600px;
+      max-height: 800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -2px; left: -2px; right: -2px; bottom: -2px;
+        background: linear-gradient(135deg, #6c5ce7, #00cec9);
+        z-index: -1;
+        filter: blur(10px);
+        opacity: 0.5;
+      }
+
+      .videoPlayer {
+        width: 100%;
+        max-height: 700px;
+        display: block;
+      }
+    }
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(0.8); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 0.2; }
+    100% { transform: scale(0.8); opacity: 0.8; }
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 }
