@@ -1,0 +1,84 @@
+.SideBar {
+  width: fit-content;
+  padding: 0 $padding_sm;
+  background-color: $color_bg;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  border-right: 2px solid white;
+  z-index: 1000;
+
+  &.expanded {
+    width: 300px;
+  }
+
+  @include respond-below(md) {
+    display: none;
+
+    &.expanded {
+      display: flex;
+      position: fixed;
+      height: 100%;
+    }
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    .toggleButton {
+      padding: 10px 20px;
+      display: flex;
+      width: 100%;
+      font-size: 20px;
+      cursor: pointer;
+      gap: 10px;
+
+      @include respond-below(md) {
+        padding: 10px;
+      }
+    }
+  }
+}
+
+.menuItem {
+  padding: 10px 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-radius: 12px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: $color_text_grey;
+  font-size: 14px;
+  cursor: pointer;
+
+  @include respond-below(md) {
+    padding: 10px;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover {
+    background-color: white;
+  }
+
+  &.active {
+    color: $color_1;
+    background-color: white;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  }
+
+  &.logout {
+    color: $color_danger1;
+  }
+}
+
+.bottom {
+  margin-bottom: $padding_sm;
+}

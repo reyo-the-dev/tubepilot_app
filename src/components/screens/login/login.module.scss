@@ -1,0 +1,197 @@
+.LoginScreen {
+  padding: 24px;
+  height: 100vh;
+  background-color: $color_bg; // Subtly tinted background to highlight the form
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .wrap {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    height: 100%;
+    min-height: 600px;
+    max-height: 800px;
+    background-color: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    @include respond-below(md) {
+      grid-template-columns: 1fr;
+    }
+
+
+
+    .left {
+      background-color: white;
+      height: 100%;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .loginForm {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        width: 100%;
+        max-width: 400px;
+
+        .greet {
+          text-align: center;
+          margin-bottom: 8px;
+
+          .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #111827;
+            margin: 0 0 8px 0;
+          }
+
+          small {
+            font-size: 15px;
+            color: #6b7280;
+          }
+        }
+
+        .oAuth {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+
+          button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+          }
+
+          .divider {
+            position: relative;
+            text-align: center;
+            margin-top: 8px;
+
+            &::before {
+              content: "";
+              position: absolute;
+              left: 0;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 100%;
+              height: 1px;
+              background-color: #e5e7eb;
+              z-index: 0;
+            }
+
+            span {
+              position: relative;
+              z-index: 1;
+              background-color: white;
+              padding: 0 12px;
+              color: #9ca3af;
+              font-size: 13px;
+              font-weight: 500;
+              text-transform: uppercase;
+              letter-spacing: 0.05em;
+            }
+          }
+        }
+
+        .formContainer {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          .options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-top: -4px;
+            margin-bottom: 4px;
+
+            .remember {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              color: #4b5563;
+              cursor: pointer;
+
+              input[type="checkbox"] {
+                width: 16px;
+                height: 16px;
+                accent-color: #3b82f6;
+                cursor: pointer;
+              }
+            }
+
+            .forgot {
+              color: #3b82f6;
+              font-weight: 500;
+              text-decoration: none;
+              transition: color 0.2s;
+
+              &:hover {
+                color: #2563eb;
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+
+        .signupAction {
+          text-align: center;
+          margin-top: 8px;
+          font-size: 14px;
+          color: #6b7280;
+
+          a {
+            color: #3b82f6;
+            font-weight: 600;
+            text-decoration: none;
+
+            &:hover {
+              color: #2563eb;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: flex-end;
+      padding: 40px;
+      background: linear-gradient(135deg, $color_1 0%, $color_2 100%);
+      position: relative;
+      color: white;
+
+      .imageOverlay {
+        z-index: 1;
+
+        h3 {
+          font-size: 32px;
+          font-weight: 700;
+          margin: 0 0 12px 0;
+          line-height: 1.2;
+        }
+
+        p {
+          font-size: 16px;
+          opacity: 0.9;
+          margin: 0;
+          line-height: 1.5;
+          max-width: 80%;
+
+        }
+      }
+
+      @include respond-below(md) {
+        display: none;
+      }
+    }
+  }
+}

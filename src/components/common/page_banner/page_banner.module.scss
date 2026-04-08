@@ -1,0 +1,47 @@
+.PageBanner {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .cont {
+        height: 550px;
+        position: relative;
+        z-index: 1;
+        @include flexCenter;
+        flex-direction: column;
+        gap: 10px;
+
+        h1 {
+            color: white;
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .crumbs {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            svg {
+                font-size: 14px;
+            }
+
+            a,
+            span {
+                color: white;
+                font-size: 16px;
+            }
+        }
+    }
+}

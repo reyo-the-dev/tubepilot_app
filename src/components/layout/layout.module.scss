@@ -1,0 +1,20 @@
+.Layout {
+  .cont {
+    display: flex;
+
+    .main {
+      padding: $padding_sm $padding_sm $padding_sm 0;
+      width: 100%;
+      height: calc(100svh - 60px);
+
+      > div {
+        // background-color: white;
+        padding: 0 $padding_sm;
+        // border-radius: 16px;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+      }
+    }
+  }
+}

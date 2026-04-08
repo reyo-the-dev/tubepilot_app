@@ -1,0 +1,239 @@
+.wrapper {
+  // max-width: 800px;
+  margin: 0 auto;
+  // padding-bottom: 60px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+
+  h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 15px;
+    color: #64748b;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+  padding: 0 40px;
+
+  @media (max-width: 600px) {
+    padding: 0 20px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 60px;
+    right: 60px;
+    height: 2px;
+    background: #e2e8f0;
+    z-index: 1;
+  }
+
+  .stepIndicator {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    background: #f8fafc; // Match app bg or make transparent
+
+    .circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid #e2e8f0;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #94a3b8;
+      transition: all 0.3s;
+    }
+
+    &.active {
+      .circle {
+        background: #4f46e5;
+        border-color: #4f46e5;
+        color: white;
+        box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+      }
+
+      .label {
+        color: #0f172a;
+        font-weight: 700;
+      }
+    }
+
+    &.completed {
+      .circle {
+        background: #10b981;
+        border-color: #10b981;
+        color: white;
+      }
+
+      .label {
+        color: #10b981;
+      }
+    }
+  }
+}
+
+.formGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .row2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.artStyles {
+  //   display: flex;
+
+  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+
+  .artStyle {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-size: contain;
+    color: white;
+    text-align: center;
+    // font-size: 18px;
+    font-weight: bold;
+    border-radius: 18px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border: 5px solid $color_text_grey2;
+    cursor: pointer;
+    opacity: 0.8;
+    position: relative;
+
+    svg {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      color: $color_1;
+      font-size: 24px;
+      background-color: white;
+      border-radius: 50%;
+      border: 1px solid white;
+      display: none;
+    }
+
+    &:hover {
+      border-color: $color_text_grey;
+      opacity: 0.9;
+      //   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+    &.active {
+      border-color: $color_1;
+      opacity: 1;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+      svg {
+        display: block;
+      }
+    }
+  }
+
+  @include respond-below(md) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.footerActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+
+  button {
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btnBack {
+    background: white;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+
+    &:hover {
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    &:disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  .btnNext {
+    background: #4f46e5;
+    color: white;
+    box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.39);
+
+    &:hover {
+      background: #4338ca;
+      transform: translateY(-1px);
+    }
+  }
+
+  .btnCreate {
+    background: #10b981;
+    color: white;
+    box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.39);
+
+    &:hover {
+      background: #059669;
+      transform: translateY(-1px);
+    }
+  }
+}

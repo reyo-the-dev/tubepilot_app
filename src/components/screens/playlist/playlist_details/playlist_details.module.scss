@@ -1,0 +1,303 @@
+.PlaylistDetails {
+    .headerArea {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 24px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid #e2e8f0;
+
+        @media (max-width: 900px) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .titleInfo {
+            h1 {
+                font-size: 28px;
+                font-weight: 700;
+                color: #0f172a;
+                margin: 0 0 8px 0;
+            }
+
+            p {
+                margin: 0;
+                color: #64748b;
+                font-size: 15px;
+            }
+        }
+
+        .headerControls {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+
+            .tabs {
+                display: flex;
+                background-color: white;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                padding: 4px;
+
+                button {
+                    border: none;
+                    background: transparent;
+                    padding: 8px 16px;
+                    border-radius: 6px;
+                    color: #64748b;
+                    font-weight: 600;
+                    font-size: 14px;
+                    cursor: pointer;
+                    transition: all 0.2s;
+
+                    &:hover {
+                        color: #0f172a;
+                    }
+
+                    &.active {
+                        background-color: white;
+                        color: #3b82f6;
+                        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                    }
+                }
+            }
+
+            .filterBtn {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                background-color: #eff6ff;
+                border: none;
+                color: #1e3a8a;
+                font-weight: 600;
+                font-size: 14px;
+                padding: 10px 16px;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background-color 0.2s;
+
+                &:hover {
+                    background-color: #dbeafe;
+                }
+            }
+        }
+    }
+
+    .tableContainer {
+        width: 100%;
+        overflow-x: auto;
+        
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+
+            th {
+                color: #64748b;
+                font-size: 12px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                padding: 16px;
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            td {
+                padding: 24px 16px;
+                border-bottom: 1px solid #f1f5f9;
+                vertical-align: middle;
+            }
+
+            tr:last-child td {
+                border-bottom: none;
+            }
+
+            .videoInfoCell {
+                .thumbnailWrapper {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+
+                    .thumbnail {
+                        width: 120px;
+                        height: 68px;
+                        border-radius: 8px;
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        overflow: hidden;
+
+                        .spinnerIcon {
+                            color: #94a3b8;
+                            font-size: 24px;
+                        }
+
+                        .timeTag {
+                            position: absolute;
+                            bottom: 4px;
+                            right: 4px;
+                            background-color: rgba(0,0,0,0.7);
+                            color: white;
+                            font-size: 11px;
+                            padding: 2px 4px;
+                            border-radius: 4px;
+                            font-weight: 600;
+                        }
+                    }
+
+                    .details {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 4px;
+
+                        h4 {
+                            margin: 0;
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: #0f172a;
+                        }
+
+                        .project {
+                            font-size: 13px;
+                            color: #64748b;
+                            display: flex;
+                            align-items: center;
+                            gap: 6px;
+
+                            &.textProcessing {
+                                font-style: italic;
+                            }
+
+                            &.textError {
+                                color: #ef4444;
+                            }
+
+                            .errorIcon {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .textMuted {
+                color: #64748b;
+                font-size: 14px;
+            }
+
+            .textBold {
+                font-weight: 600;
+                color: #0f172a;
+                font-size: 14px;
+            }
+
+            .actionBtn {
+                background: transparent;
+                border: none;
+                color: #94a3b8;
+                font-size: 20px;
+                cursor: pointer;
+                transition: color 0.2s;
+
+                &:hover {
+                    color: #0f172a;
+                }
+            }
+        }
+    }
+
+    .statusBadge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 13px;
+        font-weight: 600;
+
+        .dot, .dotBlue {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .dot { background-color: #10b981; }
+        .dotBlue { background-color: #3b82f6; }
+
+        &.badgeReady {
+            background-color: #d1fae5;
+            color: #059669;
+        }
+
+        &.badgeProcessing {
+            background-color: #eff6ff;
+            color: #2563eb;
+        }
+
+        &.badgeUploaded {
+            background-color: #eff6ff;
+            color: #2563eb;
+            
+            svg {
+                font-size: 14px;
+            }
+        }
+
+        &.badgeFailed {
+            background-color: #fee2e2;
+            color: #b91c1c;
+        }
+    }
+
+    .paginationArea {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid #f1f5f9;
+
+        span {
+            color: #64748b;
+            font-size: 14px;
+
+            strong {
+                color: #0f172a;
+            }
+        }
+
+        .paginationControls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            .pageBtn {
+                width: 32px;
+                height: 32px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: white;
+                border: 1px solid #e2e8f0;
+                border-radius: 6px;
+                color: #64748b;
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.2s;
+
+                &:hover {
+                    background: #f8fafc;
+                }
+
+                &.active {
+                    background: #4f46e5;
+                    border-color: #4f46e5;
+                    color: white;
+                }
+            }
+        }
+    }
+}

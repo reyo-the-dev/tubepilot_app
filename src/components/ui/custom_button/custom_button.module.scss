@@ -1,0 +1,35 @@
+.CustomButton {
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  margin-right: 15px;
+  cursor: pointer;
+  // font-size: 15px;
+
+  &:disabled {
+    opacity: 0.8;
+  }
+
+  &.fullWidth {
+    width: 100%;
+  }
+
+  &.v1 {
+    background-color: $color_1;
+    color: white;
+
+    &:hover {
+      // background-color: $color_1;
+    }
+  }
+
+  &.v2 {
+    background-color: $color_1;
+    color: $color_2;
+
+    &:hover {
+      background-color: $color_2;
+      color: $color_1;
+    }
+  }
+}

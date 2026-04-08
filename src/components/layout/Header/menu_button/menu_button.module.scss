@@ -1,0 +1,132 @@
+.RightMenu {
+  display: flex;
+  align-items: center;
+  // gap: 10px;
+
+  .MenuButton {
+    display: none;
+
+    svg {
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+        color: $color_2;
+      }
+    }
+  }
+
+  .callBtn {
+    background-color: $color_2;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    margin-right: 15px;
+    cursor: pointer;
+
+  }
+
+  @include respond-below(md) {
+    .MenuButton {
+      display: block;
+    }
+
+    .callBtn {
+      span {
+        display: none;
+      }
+    }
+  }
+}
+
+.drawer {
+  border-left: none;
+}
+
+.drawerHeader {
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  
+  :global(.btn-close) {
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+.drawerBody {
+  padding: 15px 20px;
+}
+
+.navSm {
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    a,
+    p {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: $color_2;
+      padding: 8px 12px;
+      margin-bottom: 5px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      background: transparent;
+      text-decoration: none;
+
+      &:hover, &.activeDropdownParent {
+        color: white !important;
+        background: $color_1;
+        transform: translateX(3px);
+      }
+    }
+
+    .dropdown {
+      overflow: hidden;
+      animation: openDropDown 0.4s ease forwards;
+      padding-left: 15px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border-left: 2px solid rgba($color_1, 0.15);
+      
+      a {
+        margin-left: 0;
+        border: none;
+        padding: 6px 12px;
+        margin-bottom: 3px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #555;
+        border-radius: 6px;
+        
+        &:hover {
+          background: rgba($color_1, 0.08);
+          color: $color_1 !important;
+          transform: translateX(3px);
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+@keyframes openDropDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 600px;
+  }
+}

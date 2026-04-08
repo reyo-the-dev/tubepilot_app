@@ -1,0 +1,7 @@
+.GenerateVideoStep {
+  .cta {
+    min-height: 500px;
+    @include flexCenter;
+    flex-direction: column;
+  }
+}

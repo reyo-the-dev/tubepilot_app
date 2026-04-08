@@ -1,0 +1,35 @@
+.metadataBox {
+  .boxTitle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 24px;
+    
+    .iconBox {
+      background: #f1f5f9;
+      color: #475569;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+  }
+
+  .formGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .row2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+  }
+}

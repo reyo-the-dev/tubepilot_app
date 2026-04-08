@@ -1,0 +1,38 @@
+.qualityCard {
+  margin-bottom: 24px;
+
+  .boxTitle { 
+    font-size: 16px; 
+    font-weight: 800; 
+    color: #0f172a; 
+    margin-bottom: 20px; 
+  }
+  
+  .qList {
+     display: flex;
+     flex-direction: column;
+     gap: 12px;
+
+     .qItem {
+       background: #f8fafc;
+       padding: 16px;
+       border-radius: 12px;
+       display: flex;
+       align-items: center;
+       gap: 16px;
+       cursor: pointer;
+       transition: background 0.2s;
+
+       &:hover { background: #f1f5f9; }
+
+       .icon {
+         color: #94a3b8;
+         font-size: 20px;
+       }
+       .details {
+         h5 { margin: 0 0 4px 0; font-size: 13px; color: #0f172a; font-weight: 700; }
+         span { font-size: 11px; color: #94a3b8; font-weight: 500; }
+       }
+     }
+  }
+}

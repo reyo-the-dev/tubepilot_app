@@ -1,0 +1,55 @@
+.CustomOptionGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+
+  .groupLabel {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 2px;
+  }
+
+  .optionsContainer {
+    display: grid;
+    gap: 8px;
+
+    .optionBtn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 12px;
+      background-color: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      color: #374151;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      outline: none;
+
+      .icon {
+        display: flex;
+        font-size: 16px;
+      }
+
+      &:hover {
+        border-color: #d1d5db;
+        background-color: #f9fafb;
+      }
+
+      &.selected {
+        background-color: #f8faff; 
+        border-color: #6366f1; 
+        color: #4f46e5; 
+
+        .icon {
+          color: #4f46e5;
+        }
+      }
+    }
+  }
+}

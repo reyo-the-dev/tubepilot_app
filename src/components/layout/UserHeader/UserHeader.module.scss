@@ -1,0 +1,10 @@
+.UserHeader {
+  background-color: white;
+  padding: 0 $padding_md;
+  .container {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
