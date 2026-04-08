@@ -31,7 +31,7 @@ const VoiceoverSettings = () => {
                             {/* Placeholder for Voice Avatar */}
                         </div>
                         <div className={styles.details}>
-                            <h5>"Isabella" - English (UK)</h5>
+                            <h5>&quot;Isabella&quot; - English (UK)</h5>
                             <span>Narrative & Warm</span>
                         </div>
                     </div>
