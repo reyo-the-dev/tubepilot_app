@@ -77,7 +77,7 @@ const GenerateVideoStep = ({ projectId, projectData }) => {
               <CameraReels size={48} />
             </div>
             <h2>Ready to generate your masterpiece?</h2>
-            <p>Your script and preferences are set. Let's bring it to life.</p>
+            <p>Your script and preferences are set. Let&apos;s bring it to life.</p>
             <CustomButton onClick={handleGenerate} className={styles.generateBtn}>
               Generate Video <Magic />
             </CustomButton>
