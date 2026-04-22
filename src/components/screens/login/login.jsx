@@ -33,9 +33,9 @@ const LoginScreen = () => {
         });
       }
 
-        if(authRes?.error){
-          toast.error(authRes.error.message)
-        }
+      if (authRes?.error) {
+        toast.error(authRes.error.message)
+      }
     } catch (error) {
       console.log(error);
       toast.error("error");
@@ -61,7 +61,9 @@ const LoginScreen = () => {
               </div>
               {!isSignup && (
                 <div className={styles.oAuth}>
-                  <CustomButton variant={3} fullWidth>
+                  <CustomButton variant={3} fullWidth
+
+                  >
                     Continue with Google <Google />
                   </CustomButton>
 
@@ -111,7 +113,7 @@ const LoginScreen = () => {
                   )}
                 </div>
 
-                <CustomButton variant={1} fullWidth>
+                <CustomButton variant={1} fullWidth type="submit">
                   {isSignup ? "Sign Up" : "Sign In"}
                 </CustomButton>
               </form>
