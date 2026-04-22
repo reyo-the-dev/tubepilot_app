@@ -11,6 +11,7 @@ import {
   ClipboardDataFill,
   Grid,
   GridFill,
+  Images,
   List,
   PlusCircle,
   PlusCircleFill,
@@ -35,6 +36,13 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
       href: "/playlist",
     },
 
+        {
+      id: "slides",
+      icon: <Images />,
+      name: "Slide Series",
+      activeIcon: <Images />,
+      href: "/slides",
+    },
     {
       id: "videos",
       icon: <CameraVideo />,

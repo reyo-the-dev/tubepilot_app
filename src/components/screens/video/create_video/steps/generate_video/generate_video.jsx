@@ -17,10 +17,6 @@ const GenerateVideoStep = ({ projectId, projectData }) => {
     projectData?.video?.video_url
   );
 
-
-  console.log(projectData);
-
-
   // Timer effect
   useEffect(() => {
     if (!isPending) return;
@@ -50,9 +46,14 @@ const GenerateVideoStep = ({ projectId, projectData }) => {
   };
 
   if (videoUrl && !isPending) {
-    return <VideoDetailsScreen videoUrl={videoUrl}
-      projectData={projectData}
-    />;
+    return <div>
+      <VideoDetailsScreen videoUrl={videoUrl}
+        projectData={projectData}
+      />
+      <CustomButton onClick={handleGenerate} className={styles.generateBtn}>
+        Regenerate Video <Magic />
+      </CustomButton>
+    </div>;
   }
 
   return (

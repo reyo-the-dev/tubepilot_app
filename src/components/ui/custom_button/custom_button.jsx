@@ -6,22 +6,22 @@ import { Spinner } from "react-bootstrap";
 const CustomButton = ({
   children,
   disabled,
-  type,
+  type = "button",
   variant = 1,
   onClick,
   fullWidth,
   href,
   isLoading,
+  className = "",
 }) => {
+  const buttonClasses = `${styles.CustomButton} ${styles[`v${variant}`]} ${
+    fullWidth ? styles.fullWidth : ""
+  } ${className}`;
+
   if (href) {
     return (
-      <Link href={href}>
-        <button
-          type={type}
-          disabled={disabled}
-          className={`${styles.CustomButton} ${styles[`v${variant}`]} ${fullWidth ? styles.fullWidth : ""}`}
-          onClick={onClick}
-        >
+      <Link href={href} className={styles.linkWrapper}>
+        <button type={type} disabled={disabled} className={buttonClasses} onClick={onClick}>
           {children}
         </button>
       </Link>
@@ -32,10 +32,17 @@ const CustomButton = ({
     <button
       type={type}
       disabled={disabled || isLoading}
-      className={`${styles.CustomButton} ${styles[`v${variant}`]} ${fullWidth ? styles.fullWidth : ""}`}
+      className={buttonClasses}
       onClick={onClick}
     >
-      {isLoading ? "Loading.." : children}
+      {isLoading ? (
+        <div className={styles.loadingArea}>
+          <Spinner animation="border" size="sm" className={styles.spinner} />
+          <span>Loading...</span>
+        </div>
+      ) : (
+        children
+      )}
     </button>
   );
 };
