@@ -38,13 +38,13 @@
     }
 
     .playlistCard {
-      border: 1px solid #e2e8f0; // Replace with a more standard border if available, but for now keeping it consistent
+      border: 1px solid $border-mid; // Replace with a more standard border if available, but for now keeping it consistent
       border-radius: 12px;
       overflow: hidden;
       transition:
         transform 0.2s,
         box-shadow 0.2s;
-      background-color: white;
+      background-color: $bg-elevated;
 
       &:hover {
         box-shadow:
@@ -84,7 +84,7 @@
           margin: 0 0 8px 0;
           font-size: 17px;
           font-weight: 600;
-          color: #1e293b;
+          color: $text-secondary;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -120,8 +120,8 @@
             gap: 8px;
 
             button {
-              border: none;
-              background: #f8fafc;
+              border: 1px solid $border-subtle;
+              background: $bg-surface;
               color: $color_text_grey;
               width: 32px;
               height: 32px;
@@ -133,19 +133,19 @@
               transition: all 0.2s;
 
               &:hover {
-                background: #e2e8f0;
-                color: #0f172a;
+                background: $bg-hover;
+                color: $text-primary;
               }
 
-              &.primaryAction {
-                background: #eff6ff;
-                color: $color_2;
+              // &.primaryAction {
+              //   background: $red-dim;
+              //   color: $red-core;
 
-                &:hover {
-                  background: #dbeafe;
-                  color: #1d4ed8;
-                }
-              }
+              //   // &:hover {
+              //   //   background: #dbeafe;
+              //   //   color: #1d4ed8;
+              //   // }
+              // }
             }
           }
         }
