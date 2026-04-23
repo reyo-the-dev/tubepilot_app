@@ -16,8 +16,13 @@
   .header {
     display: flex;
     justify-content: space-between;
-    // align-items: center;
-    margin-bottom: 12px;
+
+    margin-bottom: 24px;
+
+    @include respond-below(md) {
+      flex-direction: column;
+      gap: 12px;
+    }
   }
 
   .title {
