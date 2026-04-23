@@ -32,7 +32,7 @@
         position: absolute;
         top: 5px;
         left: 5px;
-        color: $red-core;
+        color: $primary-core;
         font-size: 24px;
         background-color: white;
         border-radius: 50%;
@@ -47,7 +47,7 @@
       }
 
       &.active {
-        border-color: $red-core;
+        border-color: $primary-core;
         opacity: 1;
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 

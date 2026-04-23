@@ -37,7 +37,7 @@
       width: 40px;
       height: 40px;
       min-width: 40px;
-      background-color: $red-core;
+      background-color: $primary-core;
       border-radius: 50%;
       @include flexCenter;
       color: white;
@@ -62,7 +62,7 @@
         text-decoration: none;
 
         &:hover {
-          color: $red-core;
+          color: $primary-core;
         }
       }
     }
@@ -84,7 +84,7 @@
       gap: 12px;
 
       a {
-        color: $red-core;
+        color: $primary-core;
         font-size: 16px;
         display: flex;
         align-items: center;
@@ -133,10 +133,10 @@
       }
 
       &:hover {
-        color: $red-core;
+        color: $primary-core;
 
         .bulletIcon {
-          color: $red-core;
+          color: $primary-core;
         }
       }
     }
@@ -170,12 +170,12 @@
     }
 
     &:focus {
-      border-color: $red-core;
+      border-color: $primary-core;
     }
   }
 
   .subscribeBtn {
-    background-color: $red-core;
+    background-color: $primary-core;
     color: white;
     font-weight: 600;
     font-size: 14px;

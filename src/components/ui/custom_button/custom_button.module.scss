@@ -24,13 +24,13 @@
 
   // Primary: Solid Emerald
   &.v1 {
-    background-color: $red-core;
+    background-color: $primary-core;
     color: white;
 
     &:hover:not(:disabled) {
       filter: brightness(1.05);
       // transform: translateY(-1px);
-      box-shadow: 0px 0px 5px 5px rgba($red-core, 0.3);
+      box-shadow: 0px 0px 5px 5px rgba($primary-core, 0.3);
     }
 
     &:active:not(:disabled) {

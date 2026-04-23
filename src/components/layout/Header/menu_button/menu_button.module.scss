@@ -84,7 +84,7 @@
       &:hover,
       &.activeDropdownParent {
         color: white !important;
-        background: $red-core;
+        background: $primary-core;
         transform: translateX(3px);
       }
     }
@@ -95,7 +95,7 @@
       padding-left: 15px;
       margin-top: 5px;
       margin-bottom: 10px;
-      border-left: 2px solid rgba($red-core, 0.15);
+      border-left: 2px solid rgba($primary-core, 0.15);
 
       a {
         margin-left: 0;
@@ -108,8 +108,8 @@
         border-radius: 6px;
 
         &:hover {
-          background: rgba($red-core, 0.08);
-          color: $red-core !important;
+          background: rgba($primary-core, 0.08);
+          color: $primary-core !important;
           transform: translateX(3px);
           box-shadow: none;
         }

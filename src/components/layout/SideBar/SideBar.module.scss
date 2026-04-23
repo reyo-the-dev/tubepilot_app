@@ -88,7 +88,7 @@
   .activeBorder {
     width: 3px;
     height: 22px;
-    background-color: $red-core;
+    background-color: $primary-core;
     position: absolute;
     left: 0;
     border-radius: 0 4px 4px 0;
@@ -96,8 +96,8 @@
   }
 
   &.active {
-    color: $red-core;
-    background-color: $red-surface;
+    color: $primary-core;
+    background-color: $primary-surface;
 
     .activeBorder {
       display: block;

@@ -8,7 +8,7 @@ The color system is defined in `src/styles/scss/_variables.scss`. Note that thes
 
 | Variable            | HEX Code  | Description                                                                  |
 | :------------------ | :-------- | :--------------------------------------------------------------------------- |
-| `$red-core`         | `#10b981` | **Primary Color** (Emerald/Green) - Used for primary actions and highlights. |
+| `$primary-core`     | `#10b981` | **Primary Color** (Emerald/Green) - Used for primary actions and highlights. |
 | `$color_2`          | `#3b82f6` | **Secondary Color** (Blue) - Used for secondary actions and accents.         |
 | `$color_bg`         | `#f0fdf4` | **Background Color** - The default background for the application pages.     |
 | `$color_text_grey`  | `#64748b` | **Text Grey** - Used for secondary text, labels, and icons.                  |

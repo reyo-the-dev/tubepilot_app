@@ -29,7 +29,7 @@
       cursor: pointer;
 
       &:focus {
-        border-color: $red-core;
+        border-color: $primary-core;
         background-color: $bg-hover;
       }
 
@@ -68,7 +68,7 @@
   border-radius: 12px !important;
 
   overflow: hidden;
-  box-shadow: 0 0 10px 1px rgba($red-glow, 0.1);
+  box-shadow: 0 0 10px 1px rgba($primary-glow, 0.1);
 }
 
 .customBackdrop {
@@ -146,7 +146,7 @@
         top: 0;
         bottom: 0;
         width: 4px;
-        background: $red-core;
+        background: $primary-core;
       }
     }
 
@@ -164,10 +164,10 @@
     }
 
     &.selected {
-      background-color: $red-surface;
-      border-bottom-color: $red-core;
+      background-color: $primary-surface;
+      border-bottom-color: $primary-core;
       .optLabel {
-        color: $red-core;
+        color: $primary-core;
       }
     }
   }

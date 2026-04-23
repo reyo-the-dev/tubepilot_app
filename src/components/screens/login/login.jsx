@@ -6,6 +6,7 @@ import { Google } from "react-bootstrap-icons";
 import CustomInput from "@/components/ui/custom_input/custom_input";
 import { toast } from "react-toastify";
 import { supabase } from "@/services/supabaseClient";
+import FONTS from "@/styles/fonts";
 
 const LoginScreen = () => {
   const [formData, setFormData] = useState({
@@ -55,23 +56,13 @@ const LoginScreen = () => {
 
           <div className={styles.left}>
             <div className={styles.loginForm}>
-              <div className={styles.greet}>
+              <div className={`${styles.greet}`}>
                 <h2 className={styles.logo}>Get Started</h2>
-                <small>Sign in to your account</small>
+                <small
+                className={FONTS.font2}
+                >Sign in to your account</small>
               </div>
-              {!isSignup && (
-                <div className={styles.oAuth}>
-                  <CustomButton variant={3} fullWidth
-
-                  >
-                    Continue with Google <Google />
-                  </CustomButton>
-
-                  <div className={styles.divider}>
-                    <span>or sign in with email</span>
-                  </div>
-                </div>
-              )}
+             
 
               <form className={styles.formContainer} onSubmit={handleSubmit}>
                 <CustomInput
@@ -117,6 +108,23 @@ const LoginScreen = () => {
                   {isSignup ? "Sign Up" : "Sign In"}
                 </CustomButton>
               </form>
+
+               {!isSignup && (
+                <div className={styles.oAuth}>
+                  
+                  <div className={styles.divider}>
+                    <span
+                    className={FONTS.font2}
+                    >or sign in with</span>
+                  </div>
+                  <CustomButton variant={3} fullWidth
+
+                  >
+                    Continue with Google <Google />
+                  </CustomButton>
+
+                </div>
+              )}
 
               <div className={styles.signupAction}>
                 <p>

@@ -6,11 +6,11 @@
   border: 1px solid $border-subtle;
 
   &:hover {
-    border-color: $red-dim;
+    border-color: $primary-dim;
   }
 
   &.leftBorder {
-    border-left: 3px solid $red-core;
+    border-left: 3px solid $primary-core;
   }
 
   .header {
@@ -35,7 +35,7 @@
       height: 18px;
       // color: $text-secondary;
 
-      // color: $red-glow;
+      // color: $primary-glow;
     }
   }
 
