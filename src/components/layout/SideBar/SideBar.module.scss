@@ -6,6 +6,7 @@
   flex-direction: column;
   z-index: 1000;
   border-right: 1px solid $border-subtle;
+  position: relative;
 
   .logo {
     padding: $padding_sm;
@@ -26,6 +27,19 @@
     flex-direction: column;
     margin-top: 20px;
     padding: 0 $padding_sm;
+
+    .back {
+      position: absolute;
+      bottom: 16px;
+      left: $padding_sm;
+      background-color: $bg-elevated;
+      width: calc(100% - $padding_sm * 2);
+      @include flexCenter;
+
+      &:hover {
+        background-color: $bg-hover;
+      }
+    }
 
     .toggleButton {
       padding: 10px 20px;

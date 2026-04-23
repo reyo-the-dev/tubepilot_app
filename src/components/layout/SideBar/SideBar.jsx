@@ -7,6 +7,8 @@ import {
   CameraVideo,
   CameraVideoFill,
   ChatRight,
+  ChevronLeft,
+  ChevronRight,
   ClipboardData,
   ClipboardDataFill,
   Grid,
@@ -25,7 +27,6 @@ import { useRouter } from "next/router";
 import FONTS from "@/styles/fonts";
 
 const SideBar = ({ isExpanded, setIsExpanded }) => {
-
   const router = useRouter();
 
   const menus = [
@@ -37,7 +38,7 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
       href: "/playlist",
     },
 
-        {
+    {
       id: "slides",
       icon: <Images />,
       name: "Slide Series",
@@ -67,9 +68,6 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
     },
   ];
 
-  
-  
-
   const device = useDeviceType();
 
   useEffect(() => {
@@ -86,13 +84,10 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
     
     `}
     >
-      <div className={styles.logo}>
-          TubePilot
-        </div>
+      <div className={styles.logo}>TubePilot</div>
       <div className={styles.menu}>
-        
         {menus.map((menu, idx) => {
-          const isActive = router.pathname.split('/')?.[1] === menu.id;
+          const isActive = router.pathname.split("/")?.[1] === menu.id;
 
           if (!isExpanded) {
             return (
@@ -112,7 +107,6 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
                       setIsExpanded(false);
                     }
                   }}
-
                 >
                   {isActive ? menu.activeIcon : menu.icon}
                   {isExpanded && <span>{menu.name}</span>}
@@ -133,9 +127,7 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
               }}
             >
               {isActive ? menu.activeIcon : menu.icon}
-              {isExpanded && <span
-              className={FONTS.font2}
-              >{menu.name}</span>}
+              {isExpanded && <span className={FONTS.font2}>{menu.name}</span>}
               <div className={styles.activeBorder}></div>
             </Link>
           );
@@ -151,6 +143,16 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
             <BoxArrowRight />
             {isExpanded && "Logout"}
           </p>
+        </div>
+
+        <div className={`${styles.menuItem} ${styles.back}`}
+        onClick={()=>{
+          setIsExpanded(prev => !prev)
+        }}
+        >
+          {
+            isExpanded ? <ChevronLeft/> : <ChevronRight/>
+          }
         </div>
       </div>
     </div>
