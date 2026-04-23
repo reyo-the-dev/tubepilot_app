@@ -58,20 +58,20 @@
 
       &.active {
         .stepIcon {
-          border-color: $color_1;
-          color: $color_1;
-          box-shadow: 0 0 0 4px rgba($color_1, 0.1);
+          border-color: $red-core;
+          color: $red-core;
+          box-shadow: 0 0 0 4px rgba($red-core, 0.1);
         }
 
         .stepLabel {
-          color: $color_1;
+          color: $red-core;
         }
       }
 
       &.completed {
         .stepIcon {
-          background: $color_1;
-          border-color: $color_1;
+          background: $red-core;
+          border-color: $red-core;
           color: white;
         }
 
@@ -80,7 +80,7 @@
         }
 
         .stepConnector {
-          background: $color_1;
+          background: $red-core;
         }
       }
     }

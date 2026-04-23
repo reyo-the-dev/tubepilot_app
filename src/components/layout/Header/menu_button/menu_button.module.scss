@@ -25,7 +25,6 @@
     border-radius: 4px;
     margin-right: 15px;
     cursor: pointer;
-
   }
 
   @include respond-below(md) {
@@ -48,7 +47,7 @@
 .drawerHeader {
   padding: 15px 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  
+
   :global(.btn-close) {
     &:focus {
       box-shadow: none;
@@ -82,9 +81,10 @@
       background: transparent;
       text-decoration: none;
 
-      &:hover, &.activeDropdownParent {
+      &:hover,
+      &.activeDropdownParent {
         color: white !important;
-        background: $color_1;
+        background: $red-core;
         transform: translateX(3px);
       }
     }
@@ -95,8 +95,8 @@
       padding-left: 15px;
       margin-top: 5px;
       margin-bottom: 10px;
-      border-left: 2px solid rgba($color_1, 0.15);
-      
+      border-left: 2px solid rgba($red-core, 0.15);
+
       a {
         margin-left: 0;
         border: none;
@@ -106,10 +106,10 @@
         font-weight: 500;
         color: #555;
         border-radius: 6px;
-        
+
         &:hover {
-          background: rgba($color_1, 0.08);
-          color: $color_1 !important;
+          background: rgba($red-core, 0.08);
+          color: $red-core !important;
           transform: translateX(3px);
           box-shadow: none;
         }

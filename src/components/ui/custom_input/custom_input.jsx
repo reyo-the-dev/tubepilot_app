@@ -1,5 +1,6 @@
 import React, { useId } from "react";
 import styles from "./custom_input.module.scss";
+import FONTS from "@/styles/fonts";
 
 const CustomInput = ({
   label,
@@ -14,7 +15,7 @@ const CustomInput = ({
   const id = useId();
 
   return (
-    <div className={styles.CustomInput}>
+    <div className={`${styles.CustomInput} ${FONTS.font2}`}>
       {label && <label htmlFor={id}>{label}</label>}
       <input
         id={id}

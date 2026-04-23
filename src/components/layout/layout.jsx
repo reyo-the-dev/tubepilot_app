@@ -12,10 +12,7 @@ const Layout = ({ children }) => {
   if (isAuthticated) {
     return (
       <div className={styles.Layout}>
-        <UserHeader
-          isSidebarExpanded={isSidebarExpanded}
-          setIsSideBarExpanded={setIsSideBarExpanded}
-        />
+
         <div className={styles.cont}>
           <SideBar
             isExpanded={isSidebarExpanded}

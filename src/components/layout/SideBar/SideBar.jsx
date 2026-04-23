@@ -22,6 +22,7 @@ import useDeviceType from "@/helpers/custom_hooks";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { supabase } from "@/services/supabaseClient";
 import { useRouter } from "next/router";
+import FONTS from "@/styles/fonts";
 
 const SideBar = ({ isExpanded, setIsExpanded }) => {
 
@@ -85,15 +86,11 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
     
     `}
     >
+      <div className={styles.logo}>
+          TubePilot
+        </div>
       <div className={styles.menu}>
-        {/* <p
-          className={styles.toggleButton}
-          onClick={() => {
-            setIsExpanded((prev) => !prev);
-          }}
-        >
-          <List />
-        </p> */}
+        
         {menus.map((menu, idx) => {
           const isActive = router.pathname.split('/')?.[1] === menu.id;
 
@@ -115,6 +112,7 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
                       setIsExpanded(false);
                     }
                   }}
+
                 >
                   {isActive ? menu.activeIcon : menu.icon}
                   {isExpanded && <span>{menu.name}</span>}
@@ -135,7 +133,10 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
               }}
             >
               {isActive ? menu.activeIcon : menu.icon}
-              {isExpanded && <span>{menu.name}</span>}
+              {isExpanded && <span
+              className={FONTS.font2}
+              >{menu.name}</span>}
+              <div className={styles.activeBorder}></div>
             </Link>
           );
         })}

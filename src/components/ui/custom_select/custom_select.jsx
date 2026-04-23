@@ -2,6 +2,7 @@ import React, { useId, useState, useRef } from "react";
 import { Modal } from "react-bootstrap";
 import styles from "./custom_select.module.scss";
 import { ChevronDown, MicFill } from "react-bootstrap-icons";
+import FONTS from "@/styles/fonts";
 
 const CustomSelect = ({
   label,
@@ -37,7 +38,7 @@ const CustomSelect = ({
     : placeholder || "";
 
   return (
-    <div className={styles.CustomSelect} ref={containerRef}>
+    <div className={`${styles.CustomSelect} ${FONTS.font2}`} ref={containerRef}>
       {label && <label htmlFor={id}>{label}</label>}
       <div
         className={`${styles.selectWrapper} ${disabled ? styles.disabled : ""}`}
@@ -67,7 +68,7 @@ const CustomSelect = ({
         className={styles.customModal}
         backdropClassName={styles.customBackdrop}
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton className={styles.modalHeader}>
           <Modal.Title className={styles.modalTitle}>
             {label || "Select Option"}
           </Modal.Title>

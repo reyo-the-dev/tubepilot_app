@@ -1,7 +1,9 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 body {
-  background-color: $color_bg;
+  background-color: $bg-void;
+
+  color: $text-primary;
 }
 
 section {

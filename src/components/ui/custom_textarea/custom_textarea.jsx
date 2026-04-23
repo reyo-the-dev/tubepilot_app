@@ -1,5 +1,6 @@
 import React, { useId } from "react";
 import styles from "./custom_textarea.module.scss";
+import FONTS from "@/styles/fonts";
 
 const CustomTextarea = ({
   label,
@@ -14,7 +15,7 @@ const CustomTextarea = ({
   const id = useId();
 
   return (
-    <div className={styles.CustomTextarea}>
+    <div className={`${styles.CustomTextarea} ${FONTS.font2}`}>
       {label && <label htmlFor={id}>{label}</label>}
       <textarea
         id={id}

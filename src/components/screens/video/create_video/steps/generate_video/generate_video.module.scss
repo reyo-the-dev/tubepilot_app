@@ -2,8 +2,6 @@
   text-align: center;
   padding: 30px;
 
-
-
   .cta {
     min-height: 400px;
     display: flex;
@@ -96,7 +94,7 @@
       font-size: 24px;
       font-weight: 600;
       color: transparent;
-      background: linear-gradient(90deg, $color_1, #a29bfe);
+      background: linear-gradient(90deg, $red-core, #a29bfe);
       background-clip: text;
       -webkit-background-clip: text;
       margin-bottom: 10px;
@@ -141,7 +139,7 @@
       justify-content: center;
 
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: -2px;
         left: -2px;

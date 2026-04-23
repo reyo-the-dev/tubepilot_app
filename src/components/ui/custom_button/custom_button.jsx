@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./custom_button.module.scss";
 import Link from "next/link";
 import { Spinner } from "react-bootstrap";
+import FONTS from "@/styles/fonts";
 
 const CustomButton = ({
   children,
@@ -14,7 +15,7 @@ const CustomButton = ({
   isLoading,
   className = "",
 }) => {
-  const buttonClasses = `${styles.CustomButton} ${styles[`v${variant}`]} ${
+  const buttonClasses = `${FONTS.font2} ${styles.CustomButton} ${styles[`v${variant}`]} ${
     fullWidth ? styles.fullWidth : ""
   } ${className}`;
 

@@ -3,9 +3,10 @@
     display: flex;
 
     .main {
-      padding: $padding_sm $padding_sm $padding_sm 0;
+      // padding: $padding_sm $padding_sm $padding_sm 0;
+      padding: $padding_md;
       width: 100%;
-      height: calc(100svh - 60px);
+      height: 100vh;
 
       > div {
         // background-color: white;

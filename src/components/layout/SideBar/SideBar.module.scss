@@ -1,24 +1,23 @@
 .SideBar {
   width: fit-content;
-  padding: 0 $padding_sm;
-  background-color: $color_bg;
+  // padding: 0 $padding_sm;
+  background-color: $bg-surface;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
-  border-right: 2px solid white;
   z-index: 1000;
+  border-right: 1px solid $border-subtle;
 
-  &.expanded {
-    width: 300px;
+  .logo {
+    padding: $padding_sm;
+    border-bottom: 1px solid $border-subtle;
+    display: none;
   }
 
-  @include respond-below(md) {
-    display: none;
+  &.expanded {
+    width: 280px;
 
-    &.expanded {
-      display: flex;
-      position: fixed;
-      height: 100%;
+    .logo {
+      display: unset;
     }
   }
 
@@ -26,6 +25,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 20px;
+    padding: 0 $padding_sm;
 
     .toggleButton {
       padding: 10px 20px;
@@ -38,6 +38,16 @@
       @include respond-below(md) {
         padding: 10px;
       }
+    }
+  }
+
+  @include respond-below(md) {
+    // display: none;
+
+    &.expanded {
+      display: flex;
+      position: fixed;
+      height: 100%;
     }
   }
 }
@@ -53,6 +63,7 @@
   color: $color_text_grey;
   font-size: 14px;
   cursor: pointer;
+  position: relative;
 
   @include respond-below(md) {
     padding: 10px;
@@ -64,14 +75,28 @@
   }
 
   &:hover {
-    background-color: white;
+    color: white;
+    background-color: $bg-hover;
+  }
+
+  .activeBorder {
+    width: 3px;
+    height: 22px;
+    background-color: $red-core;
+    position: absolute;
+    left: 0;
+    border-radius: 0 4px 4px 0;
+    display: none;
   }
 
   &.active {
-    color: $color_1;
-    background-color: white;
+    color: $red-core;
+    background-color: $red-surface;
 
-    font-weight: bold;
+    .activeBorder {
+      display: block;
+    }
+
     // box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   }
 

@@ -2,7 +2,7 @@
   width: 100vw;
   z-index: 1000;
   padding: 10px 0;
-  background-color: $color_1;
+  background-color: $red-core;
 
   .wrap {
     display: flex;
@@ -30,7 +30,6 @@
               color: white;
               font-size: 18px;
               cursor: pointer;
-
 
               &:hover {
                 color: $color_2;
