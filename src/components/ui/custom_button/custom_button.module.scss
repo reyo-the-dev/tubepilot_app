@@ -1,5 +1,5 @@
 .CustomButton {
-  border: none;
+  border: 1px solid transparent;
   padding: 8px 20px;
   border-radius: 8px;
   cursor: pointer;
@@ -40,16 +40,12 @@
 
   // Secondary: Solid Blue
   &.v2 {
-    background-color: $color_2;
+    background-color: $bg-surface;
+    border-color: $border-subtle;
     color: white;
-    box-shadow:
-      0 4px 6px -1px rgba(59, 130, 246, 0.2),
-      0 2px 4px -1px rgba(59, 130, 246, 0.1);
 
     &:hover:not(:disabled) {
-      filter: brightness(1.05);
-      transform: translateY(-1px);
-      box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+      background-color: $bg-hover;
     }
   }
 

@@ -114,7 +114,7 @@ const CreatePlaylistScreen = () => {
           className={styles.btnBack}
           onClick={handleBack}
           disabled={step === 1}
-          variant={3}
+          variant={2}
         >
           <ArrowLeft /> Back
         </CustomButton>
