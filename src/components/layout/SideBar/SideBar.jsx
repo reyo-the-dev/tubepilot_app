@@ -144,17 +144,17 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
             {isExpanded && "Logout"}
           </p>
         </div>
-
-        <div className={`${styles.menuItem} ${styles.back}`}
-        onClick={()=>{
-          setIsExpanded(prev => !prev)
-        }}
-        >
-          {
-            isExpanded ? <ChevronLeft/> : <ChevronRight/>
-          }
-        </div>
+     
       </div>
+
+         <div
+          className={` ${styles.back}`}
+          onClick={() => {
+            setIsExpanded((prev) => !prev);
+          }}
+        >
+          {isExpanded ? <ChevronLeft /> : <ChevronRight />}
+        </div>
     </div>
   );
 };

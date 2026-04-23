@@ -14,32 +14,10 @@
     display: none;
   }
 
-  &.expanded {
-    width: 280px;
-
-    .logo {
-      display: unset;
-    }
-  }
-
   .menu {
-    display: flex;
     flex-direction: column;
     margin-top: 20px;
     padding: 0 $padding_sm;
-
-    .back {
-      position: absolute;
-      bottom: 16px;
-      left: $padding_sm;
-      background-color: $bg-elevated;
-      width: calc(100% - $padding_sm * 2);
-      @include flexCenter;
-
-      &:hover {
-        background-color: $bg-hover;
-      }
-    }
 
     .toggleButton {
       padding: 10px 20px;
@@ -55,8 +33,22 @@
     }
   }
 
+  &.expanded {
+    width: 280px;
+    .menu {
+      display: flex;
+    }
+
+    .logo {
+      display: unset;
+    }
+  }
+
   @include respond-below(md) {
     // display: none;
+    .menu {
+      display: none;
+    }
 
     &.expanded {
       display: flex;
@@ -121,4 +113,25 @@
 
 .bottom {
   margin-bottom: $padding_sm;
+}
+
+.back {
+  padding: 10px 0px;
+  border-radius: 12px;
+  margin-bottom: 6px;
+  font-weight: 500;
+
+  font-size: 14px;
+  cursor: pointer;
+
+  position: absolute;
+  bottom: 16px;
+  left: $padding_sm;
+  background-color: $bg-elevated;
+  width: 50px;
+
+  @include flexCenter;
+  &:hover {
+    background-color: $bg-hover;
+  }
 }
