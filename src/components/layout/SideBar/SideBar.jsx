@@ -39,12 +39,20 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
     },
 
     {
-      id: "slides",
+      id: "slide-series",
       icon: <Images />,
       name: "Slide Series",
       activeIcon: <Images />,
-      href: "/slides",
+      href: "/slide-series",
     },
+    {
+      id: "create-slide",
+      icon: <Images />,
+      name: "Create Slide",
+      activeIcon: <Images />,
+      href: "/slides/create",
+    },
+
     {
       id: "videos",
       icon: <CameraVideo />,
@@ -100,7 +108,7 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
                 disabled={isExpanded || device.mobile}
               >
                 <Link
-                  href={`/${menu.href}`}
+                  href={`${menu.href}`}
                   className={`${styles.menuItem} ${isActive ? styles.active : ""}`}
                   onClick={() => {
                     if (!device.desktop) {
@@ -118,7 +126,7 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
           return (
             <Link
               key={menu.id}
-              href={`/${menu.href}`}
+              href={`${menu.href}`}
               className={`${styles.menuItem} ${isActive ? styles.active : ""}`}
               onClick={() => {
                 if (!device.desktop) {

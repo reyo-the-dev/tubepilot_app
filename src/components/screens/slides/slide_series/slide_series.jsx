@@ -29,8 +29,8 @@ const SlideSeries = () => {
       title="My Slide Series"
       icon={<Grid />}
       right={
-        <CustomButton variant={1} href="/slides/create">
-          Create New <PlusCircle />
+        <CustomButton variant={1} href="/slide-series/create">
+          Create New Series<PlusCircle />
         </CustomButton>
       }
     >

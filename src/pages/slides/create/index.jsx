@@ -1,12 +1,14 @@
-import ProtectedRoute from "@/components/common/ProtectedRoute/protectedRoute";
-import CreateSeriesScreen from "@/components/screens/slides/create_series/create_series";
+import ProtectedRoute from '@/components/common/ProtectedRoute/protectedRoute'
+import CreateSlideScreen from '@/components/screens/slides/create-slide/create-slide'
 
-const SeriesCreatePage = () => {
+import React from 'react'
+
+const CreateSlidePage = () => {
   return (
     <ProtectedRoute>
-      <CreateSeriesScreen />
+      <CreateSlideScreen/>
     </ProtectedRoute>
-  );
-};
+  )
+}
 
-export default SeriesCreatePage;
+export default CreateSlidePage

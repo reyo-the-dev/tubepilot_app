@@ -12,11 +12,18 @@ import {
   EyeFill,
   CheckCircleFill,
   Easel,
-  Type
+  Type,
 } from "react-bootstrap-icons";
 import SlideStyles from "@/data/dummySlideStyles";
 
-const SlideDesign = ({ values, onChangeValue, handleBack, handleNext, step, totalSteps }) => {
+const SlideDesign = ({
+  values,
+  onChangeValue,
+  handleBack,
+  handleNext,
+  step,
+  totalSteps,
+}) => {
   const fonts = [
     { label: "Inter (Sans-Serif)", value: "Inter" },
     { label: "Roboto (Global)", value: "Roboto" },
@@ -33,12 +40,14 @@ const SlideDesign = ({ values, onChangeValue, handleBack, handleNext, step, tota
   ];
 
   const SlidePreview = () => {
-    const selectedStyleConfig = SlideStyles.find(s => s.name === values.style) || SlideStyles[0];
+    const selectedStyleConfig =
+      SlideStyles.find((s) => s.name === values.style) || SlideStyles[0];
 
     // Map values to renderer props
     const renderProps = {
       text: values.previewText || selectedStyleConfig.defaultStyle.text,
-      highlights: values.previewHighlights || selectedStyleConfig.defaultStyle.highlights,
+      highlights:
+        values.previewHighlights || selectedStyleConfig.defaultStyle.highlights,
       fontColor: values.color,
       highlightColor: values.highlightColor,
       bgImg: selectedStyleConfig.defaultStyle.bgImg,
@@ -47,16 +56,19 @@ const SlideDesign = ({ values, onChangeValue, handleBack, handleNext, step, tota
       ratio: values.ratio,
       textSize: values.textSize,
       font: values.font,
-      fontWeight: values.fontWeight
+      fontWeight: values.fontWeight,
     };
 
     const htmlContent = selectedStyleConfig.renderSlide(renderProps);
 
     return (
       <div className={styles.mockupContainer}>
-        <div className={styles.iframeWrapper} style={{ aspectRatio: values.ratio.replace(":", " / ") }}>
+        <div
+          className={styles.iframeWrapper}
+          style={{ aspectRatio: values.ratio.replace(":", " / ") }}
+        >
           <iframe
-            key={`${values.style}-${values.color}-${values.highlightColor}-${values.ratio}-${values.textSize}-${values.font}-${values.fontWeight}-${values.previewText}-${values.previewHighlights.join(',')}`}
+            key={`${values.style}-${values.color}-${values.highlightColor}-${values.ratio}-${values.textSize}-${values.font}-${values.fontWeight}-${values.previewText}-${values.previewHighlights.join(",")}`}
             srcDoc={htmlContent}
             title="Slide Preview"
             className={styles.previewIframe}
@@ -96,7 +108,11 @@ const SlideDesign = ({ values, onChangeValue, handleBack, handleNext, step, tota
         <CustomBox
           title="Choose Slide Style"
           icon={<Easel />}
-          right={<b>Step {step} of {totalSteps}</b>}
+          right={
+            <b>
+              Step {step} of {totalSteps}
+            </b>
+          }
         >
           <div className={styles.slideStyles}>
             <div className={styles.stylesWrap}>
@@ -108,7 +124,13 @@ const SlideDesign = ({ values, onChangeValue, handleBack, handleNext, step, tota
                 >
                   <div className={styles.styleCardIframeWrapper}>
                     <iframe
-                      srcDoc={style.renderSlide({ ...style.defaultStyle, ratio: values.ratio, textSize: values.textSize, font: values.font, fontWeight: values.fontWeight })}
+                      srcDoc={style.renderSlide({
+                        ...style.defaultStyle,
+                        ratio: values.ratio,
+                        textSize: values.textSize,
+                        font: values.font,
+                        fontWeight: values.fontWeight,
+                      })}
                       title={style.name}
                       scrolling="no"
                     />
@@ -136,7 +158,12 @@ const SlideDesign = ({ values, onChangeValue, handleBack, handleNext, step, tota
               label="HIGHLIGHTS (COMMA SEPARATED)"
               placeholder="e.g. executives, psychopath, prisoners"
               value={values.previewHighlights.join(", ")}
-              onChange={(e, v) => onChangeValue("previewHighlights", v.split(",").map(s => s.trim()))}
+              onChange={(e, v) =>
+                onChangeValue(
+                  "previewHighlights",
+                  v.split(",").map((s) => s.trim()),
+                )
+              }
             />
           </div>
         </CustomBox>
@@ -199,7 +226,7 @@ const SlideDesign = ({ values, onChangeValue, handleBack, handleNext, step, tota
         </CustomBox>
 
         <div className={parentStyles.footerActions}>
-          <CustomButton onClick={handleBack} variant={3}>
+          <CustomButton onClick={handleBack} variant={2}>
             <ArrowLeft /> Back
           </CustomButton>
           <CustomButton onClick={handleNext}>

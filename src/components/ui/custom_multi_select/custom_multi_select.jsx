@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useId } from 'react';
 import styles from './custom_multi_select.module.scss';
 import { ChevronDown, X } from 'react-bootstrap-icons';
+import FONTS from '@/styles/fonts';
 
 const CustomMultiSelect = ({ label, options = [], selectedItems = [], onChange, placeholder = "Select items..." }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +13,7 @@ const CustomMultiSelect = ({ label, options = [], selectedItems = [], onChange, 
     const handleClickOutside = (event) => {
       if (containerRef.current && !containerRef.current.contains(event.target)) {
         setIsOpen(false);
-      }
+      } 
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -40,7 +41,7 @@ const CustomMultiSelect = ({ label, options = [], selectedItems = [], onChange, 
   };
 
   return (
-    <div className={styles.CustomMultiSelect} ref={containerRef}>
+    <div className={`${styles.CustomMultiSelect} ${FONTS.font2}`} ref={containerRef}>
       {label && <label htmlFor={id}>{label}</label>}
       
       <div 

@@ -1,0 +1,138 @@
+.wrapper {
+  .stepperContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 0 20px;
+
+    .stepItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      flex: 1;
+
+      .stepIcon {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: white;
+        border: 2px solid #e2e8f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px;
+        font-weight: 700;
+        color: #94a3b8;
+        z-index: 2;
+        transition: all 0.3s ease;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .stepLabel {
+        font-size: 13px;
+        font-weight: 600;
+        color: #94a3b8;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .stepConnector {
+        position: absolute;
+        top: 18px;
+        left: calc(50% + 20px);
+        right: calc(-50% + 20px);
+        height: 2px;
+        background: #e2e8f0;
+        z-index: 1;
+      }
+
+      &.active {
+        .stepIcon {
+          border-color: $primary-core;
+          color: $primary-core;
+          box-shadow: 0 0 0 4px rgba($primary-core, 0.1);
+        }
+
+        .stepLabel {
+          color: $primary-core;
+        }
+      }
+
+      &.completed {
+        .stepIcon {
+          background: $primary-core;
+          border-color: $primary-core;
+          color: white;
+        }
+
+        .stepLabel {
+          color: #1e293b;
+        }
+
+        .stepConnector {
+          background: $primary-core;
+        }
+      }
+    }
+  }
+
+  .stepContent {
+    min-height: 400px;
+    padding: 10px 0;
+  }
+}
+
+.footerActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+
+  button {
+    min-width: 140px;
+  }
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  .row2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+// Media Query for small screens
+@media (max-width: 640px) {
+  .wrapper {
+    .stepperContainer {
+      .stepLabel {
+        display: none;
+      }
+    }
+
+    .formGrid {
+      .row2 {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+
+.preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  @include respond-below(md) {
+    grid-template-columns: 1fr 1fr;
+  }
+}

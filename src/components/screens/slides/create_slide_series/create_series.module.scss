@@ -1,7 +1,6 @@
 .wrapper {
   // max-width: 900px;
   margin: 0 auto;
-  padding: 20px 0;
 
   .stepperContainer {
     display: flex;
@@ -96,9 +95,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 32px;
-  padding-top: 24px;
-  border-top: 1px solid #f1f5f9;
+  padding: 10px 0;
 
   button {
     min-width: 140px;

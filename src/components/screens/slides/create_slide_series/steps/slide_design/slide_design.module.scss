@@ -30,7 +30,9 @@
   .iframeWrapper {
     width: 350px;
     border-radius: 20px;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    box-shadow:
+      0 10px 25px -5px rgba(0, 0, 0, 0.1),
+      0 8px 10px -6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     position: relative;
     background: #f1f5f9;
@@ -134,7 +136,8 @@
       grid-template-columns: 1fr 1fr;
       gap: 10px;
 
-      .styleCard {}
+      .styleCard {
+      }
     }
   }
 }

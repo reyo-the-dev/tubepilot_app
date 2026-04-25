@@ -55,7 +55,7 @@ const AutomationSettings = ({ values, onChangeValue, handleBack, handleNext, ste
         </div>
 
         <div className={parentStyles.footerActions}>
-          <CustomButton onClick={handleBack} variant={3}>
+          <CustomButton onClick={handleBack} variant={2}>
             <ArrowLeft /> Back
           </CustomButton>
           <CustomButton onClick={handleNext} variant={1}>
