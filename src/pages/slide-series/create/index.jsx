@@ -1,10 +1,11 @@
 import ProtectedRoute from "@/components/common/ProtectedRoute/protectedRoute";
-import CreateSeriesScreen from "@/components/screens/slides/create_series/create_series";
+// import CreateSeriesScreen from "@/components/screens/slides/create_slide_series/create_series";
+
 
 const SeriesCreatePage = () => {
   return (
     <ProtectedRoute>
-      <CreateSeriesScreen />
+      <p>create series</p>
     </ProtectedRoute>
   );
 };
