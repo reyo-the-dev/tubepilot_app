@@ -20,6 +20,7 @@ const ScriptPreviewStep = ({
   setScriptData,
   setSlideData,
   slideData,
+  isDummy,
 }) => {
   const slidesDatatemp = {
     success: true,
@@ -89,7 +90,10 @@ const ScriptPreviewStep = ({
   const handleGenerate = async () => {
     try {
       let res = slidesDatatemp;
-      res = await mutateAsync(scriptData);
+      res = await mutateAsync({
+        ...scriptData,
+        isDummy,
+      });
 
       setSlideData(res);
     } catch (error) {
@@ -107,8 +111,6 @@ const ScriptPreviewStep = ({
   if (!scriptData) {
     return <p>No script found</p>;
   }
-
-  //   console.log(scriptData.meta.category);
 
   return (
     <CustomBox

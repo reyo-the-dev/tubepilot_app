@@ -10,7 +10,8 @@ const CustomInput = ({
   onChange=()=>{},
   name,
   required = false,
-  disabled
+  disabled,
+  checked
 }) => {
   const id = useId();
 
@@ -26,6 +27,7 @@ const CustomInput = ({
         onChange={(e) => {
           onChange(e, e.target.value);
         }}
+        checked={checked}
         disabled={disabled}
         required={required}
         className={styles.inputField}

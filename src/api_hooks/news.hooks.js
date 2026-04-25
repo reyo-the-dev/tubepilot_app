@@ -1,17 +1,18 @@
 import axiosClient from "@/services/api.config";
 import { useMutation } from "@tanstack/react-query";
 
-const getNewsData = async () => {
+const getNewsData = async ({ category, nextPage }) => {
   const url = `https://newsdata.io/api/1/latest? 
                   apikey=pub_41ba9fe4caa344069015b6a84c1adf86
                   &country=us,cn,jp,kr,in
                   &language=en
-                  &category=technology,science
+                  &category=${category}
                   &prioritydomain=top
                   &image=1
                   &video=1
                   &removeduplicate=1
                   &size=5
+                  ${nextPage ? `&page=${nextPage}` : ""}
   `;
 
   const res = await axiosClient.get(url);

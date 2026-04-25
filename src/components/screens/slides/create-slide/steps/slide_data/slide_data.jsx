@@ -23,17 +23,18 @@ const SlideDataStep = ({
   totalSteps,
   setScriptData,
   scriptData,
-  
+  isDummy,
+  setIsDummy,
 }) => {
   const categories = [
-    { label: "Tech News", value: "Tech" },
-    { label: "Daily News", value: "Daily" },
-    { label: "Sports News", value: "Sports" },
+    { label: "Tech News", value: "technology" },
+    { label: "Science News", value: "science" },
+    { label: "Sports News", value: "sports" },
   ];
 
   const [newsData, setNewsData] = useState(null);
-
   const { isPending, mutateAsync } = useGetNewsData();
+
   const {
     isPending: generateScriptIsLoading,
     mutateAsync: mutateGenerateScript,
@@ -41,7 +42,6 @@ const SlideDataStep = ({
 
   const handleGetSlideData = async () => {
     try {
-
       let res = {
         status: "success",
         totalResults: 41,
@@ -257,9 +257,12 @@ const SlideDataStep = ({
         nextPage: "1777038016185814616",
       };
 
-
-      res = await mutateAsync();
-
+      if (!isDummy) {
+        res = await mutateAsync({
+          category: values.category,
+          nextPage: newsData?.nextPage,
+        });
+      }
 
       setNewsData(res);
     } catch (error) {
@@ -270,7 +273,10 @@ const SlideDataStep = ({
 
   const generateScript = async (news) => {
     try {
-      const res = await mutateGenerateScript(news);
+      const res = await mutateGenerateScript({
+        ...news,
+        isDummy,
+      });
       setScriptData(res);
     } catch (error) {
       console.log(error);
@@ -282,9 +288,6 @@ const SlideDataStep = ({
       handleNext();
     }
   }, [scriptData]);
-
-  console.log(scriptData);
-  
 
   return (
     <CustomBox
@@ -336,9 +339,16 @@ const SlideDataStep = ({
           })}
 
         <div className={parentStyles.footerActions}>
-          <div /> {/* Spacer */}
+          <CustomInput
+            type="checkbox"
+            label={"Test Data?"}
+            checked={isDummy}
+            onChange={(e) => {
+              setIsDummy(e.target.checked);
+            }}
+          />
           {newsData ? (
-            <CustomButton onClick={handleNext}>
+            <CustomButton onClick={handleGetSlideData}>
               Next Page | total {newsData.totalResults}
             </CustomButton>
           ) : (

@@ -16,7 +16,7 @@ const CreateSlideScreen = () => {
   const [values, setValues] = useState({
     name: "",
     description: "",
-    category: "Tech",
+    category: "technology",
     //
     style: "Social News",
     color: "#000000",
@@ -90,8 +90,7 @@ const CreateSlideScreen = () => {
   const totalSteps = steps.length;
   const CurrentStepComponent = steps[step - 1].Component;
 
-  
-  
+  const [isDummy, setIsDummy] = useState(true);
 
   return (
     <div className={styles.wrapper}>
@@ -107,7 +106,8 @@ const CreateSlideScreen = () => {
           setScriptData={setScriptData}
           setSlideData={setSlideData}
           slideData={slideData}
-
+          isDummy={isDummy}
+          setIsDummy={setIsDummy}
         />
       </div>
     </div>
