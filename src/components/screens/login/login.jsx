@@ -10,8 +10,8 @@ import FONTS from "@/styles/fonts";
 
 const LoginScreen = () => {
   const [formData, setFormData] = useState({
-    email: "yora8807+1@gmail.com",
-    password: "test123",
+    email: "",
+    password: "",
     confirmPassword: "",
   });
 
