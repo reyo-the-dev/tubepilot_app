@@ -114,7 +114,7 @@ const ScriptPreviewStep = ({
 
   return (
     <CustomBox
-      title="Slide Data"
+      title="Script Preview"
       icon={<Sliders2 />}
       right={
         <b>

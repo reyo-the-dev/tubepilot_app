@@ -14,6 +14,7 @@ const CustomButton = ({
   href,
   isLoading,
   className = "",
+  
 }) => {
   const buttonClasses = `${FONTS.font2} ${styles.CustomButton} ${styles[`v${variant}`]} ${
     fullWidth ? styles.fullWidth : ""

@@ -1,37 +1,17 @@
-import React, { useEffect, useState } from "react";
-import parentStyles from "../../create_slide.module.scss";
-
-import CustomTextarea from "@/components/ui/custom_textarea/custom_textarea";
 import CustomSelect from "@/components/ui/custom_select/custom_select";
-import CustomBox from "@/components/ui/custom_box/custom_box";
+import React, { useState } from "react";
+import parentStyles from "../../../../create_slide.module.scss";
+import CustomInput from "@/components/ui/custom_input/custom_input";
+import CustomTextarea from "@/components/ui/custom_textarea/custom_textarea";
+import { Image } from "react-bootstrap";
 import CustomButton from "@/components/ui/custom_button/custom_button";
-import { Sliders2, ArrowRight, Magic } from "react-bootstrap-icons";
-import { toast } from "react-toastify";
-import axios from "axios";
+import { Magic } from "react-bootstrap-icons";
 import {
   useGenerateScriptForNews,
   useGetNewsData,
 } from "@/api_hooks/news.hooks";
-import CustomInput from "@/components/ui/custom_input/custom_input";
-import { Image } from "react-bootstrap";
-import FONTS from "@/styles/fonts";
-import PageHeading from "@/components/common/page_heading/page_heading";
-import CustomOptionGroup from "@/components/ui/custom_option_group/custom_option_group";
-import CustomTabs from "@/components/ui/custom_tabs/custom_tabs";
-import NewsTab from "./tabs/news/news";
-import FactsTab from "./tabs/news/facts/facts";
 
-const SlideDataStep = ({
-  values,
-  onChangeValue,
-  handleNext,
-  step,
-  totalSteps,
-  setScriptData,
-  scriptData,
-  isDummy,
-  setIsDummy,
-}) => {
+const NewsTab = ({ values, onChangeValue, setScriptData, isDummy,setIsDummy }) => {
   const categories = [
     { label: "Tech News", value: "technology" },
     { label: "Science News", value: "science" },
@@ -39,12 +19,13 @@ const SlideDataStep = ({
   ];
 
   const [newsData, setNewsData] = useState(null);
-  const { isPending, mutateAsync } = useGetNewsData();
 
   const {
     isPending: generateScriptIsLoading,
     mutateAsync: mutateGenerateScript,
   } = useGenerateScriptForNews();
+
+  const { isPending, mutateAsync } = useGetNewsData();
 
   const handleGetSlideData = async () => {
     try {
@@ -289,66 +270,67 @@ const SlideDataStep = ({
     }
   };
 
-  useEffect(() => {
-    if (scriptData) {
-      handleNext();
-    }
-  }, [scriptData]);
-
-  const [currentTabIndex, setCurrentTabIndex] = useState(0);
-
-  const tabs = [
-    {
-      title: "History",
-      component: <FactsTab />,
-    },
-    {
-      title: "Facts",
-      component: <FactsTab />,
-    },
-
-    {
-      title: "News",
-      component: (
-        <NewsTab
-          onChangeValue={onChangeValue}
-          values={values}
-          setScriptData={setScriptData}
-          isDummy={isDummy}
-          setIsDummy={setIsDummy}
-        />
-      ),
-    },
-  ];
-
-  const currentTab = tabs[currentTabIndex];
-
   return (
-    <>
-      <PageHeading
-        head={"Create Slide"}
-        caption={
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis, explicabo."
-        }
+    <div className={parentStyles.formGrid}>
+      <CustomSelect
+        label="CATEGORY"
+        options={categories}
+        value={values.category}
+        onChange={(e, v) => onChangeValue("category", v)}
       />
-      <CustomTabs
-        tabs={tabs}
-        currentTabIndex={currentTabIndex}
-        setCurrentTabIndex={setCurrentTabIndex}
-      />
-      <CustomBox
-        title="Slide Data"
-        icon={<Sliders2 />}
-        right={
-          <b>
-            Step {step} of {totalSteps}
-          </b>
-        }
-      >
-        {currentTab.component}
-      </CustomBox>
-    </>
+
+      {newsData &&
+        newsData.results.map((news) => {
+          return (
+            <div key={news.article_id}>
+              <CustomInput label={"TITLE"} value={news.title} />
+              <br />
+              <CustomTextarea
+                label="DESCRIPTION"
+                placeholder="Briefly describe what this series is about..."
+                rows={5}
+                value={news.description}
+                onChange={(e, v) => onChangeValue("description", v)}
+              />
+              <br />
+
+              <Image src={news.image_url} height={150} alt="No Image" />
+              <br />
+              <br />
+              <CustomButton
+                onClick={async () => {
+                  await generateScript(news);
+                }}
+                isLoading={generateScriptIsLoading}
+              >
+                Generate Script <Magic />
+              </CustomButton>
+              <hr />
+            </div>
+          );
+        })}
+
+      <div className={parentStyles.footerActions}>
+        <CustomInput
+          type="checkbox"
+          label={"Test Data?"}
+          checked={isDummy}
+          onChange={(e) => {
+            setIsDummy(e.target.checked);
+          }}
+        />
+        {newsData ? (
+          <CustomButton onClick={handleGetSlideData}>
+            Next Page | total {newsData.totalResults}
+          </CustomButton>
+        ) : (
+          <CustomButton onClick={handleGetSlideData} isLoading={isPending}>
+            Get Slide Data
+          </CustomButton>
+        )}
+      </div>
+    </div>
   );
 };
 
-export default SlideDataStep;
+export default NewsTab;

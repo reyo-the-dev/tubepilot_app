@@ -1,0 +1,25 @@
+.CustomTabs {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 8px;
+
+  .tab {
+    font-size: 14px;
+    color: $text-muted;
+    padding: 4px 12px;
+    border-radius: 8px;
+    border: 1px solid $border-subtle;
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid $border-subtle;
+      background-color: $bg-surface;
+    }
+
+    &.active {
+      border: 1px solid $primary-dim;
+      color: $primary-core;
+      background-color: $primary-surface;
+    }
+  }
+}
