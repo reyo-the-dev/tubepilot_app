@@ -19,6 +19,40 @@
     margin-top: 20px;
     padding: 0 $padding_sm;
 
+    // .label {
+    //   border-top: 1px solid $border-subtle;
+    //   color: $color_text_grey;
+    //   font-size: 12px;
+    //   padding-top: 12px;
+    //   padding-left: 5px;
+    //   margin-top: 12px;
+    //   margin-bottom: 8px;
+    //   text-transform: uppercase;
+    // }
+
+    .label {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+
+      gap: 10px;
+      span {
+        width: fit-content;
+        display: block;
+        color: $text-muted;
+        font-size: 12px;
+        font-weight: 600;
+        display: none;
+      }
+      hr {
+        background-color: $border-subtle;
+        opacity: 1;
+        height: 1px;
+        width: 100%;
+        border: none;
+      }
+    }
+
     .toggleButton {
       padding: 10px 20px;
       display: flex;
@@ -35,8 +69,15 @@
 
   &.expanded {
     width: 280px;
+
     .menu {
       display: flex;
+
+      .label {
+        span {
+          display: unset;
+        }
+      }
     }
 
     .logo {
@@ -59,25 +100,25 @@
 }
 
 .menuItem {
-  padding: 10px 20px;
+  padding: 9px 10px;
   display: flex;
   gap: 10px;
   align-items: center;
   border-radius: 12px;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   font-weight: 500;
-  color: $color_text_grey;
+  color: $text-secondary;
   font-size: 14px;
   cursor: pointer;
   position: relative;
 
   @include respond-below(md) {
-    padding: 10px;
+    // padding: 10px;
   }
 
   svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
 
   &:hover {

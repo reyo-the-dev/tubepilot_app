@@ -11,10 +11,14 @@ import {
   ChevronRight,
   ClipboardData,
   ClipboardDataFill,
+  Clock,
+  ClockFill,
   Grid,
   GridFill,
   Images,
   List,
+  Person,
+  PersonFill,
   PlusCircle,
   PlusCircleFill,
   Youtube,
@@ -31,10 +35,22 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
 
   const menus = [
     {
-      id: "playlist",
+      id: "dashboard",
       icon: <Grid />,
-      name: "Playlists",
+      name: "Dashboard",
       activeIcon: <GridFill />,
+      href: "/dashboard",
+    },
+    {
+      type: "label",
+      label: "CREATE",
+    },
+
+    {
+      id: "playlist",
+      icon: <CameraVideo />,
+      name: "Video Series",
+      activeIcon: <CameraVideoFill />,
       href: "/playlist",
     },
 
@@ -45,21 +61,21 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
       activeIcon: <Images />,
       href: "/slide-series",
     },
-    {
-      id: "create-slide",
-      icon: <Images />,
-      name: "Create Slide",
-      activeIcon: <Images />,
-      href: "/slides/create",
-    },
 
     {
-      id: "videos",
-      icon: <CameraVideo />,
-      name: "Videos",
-      activeIcon: <CameraVideoFill />,
-      href: "/videos",
+      type: "label",
+      label: "PUBLISH",
     },
+
+
+    {
+      id: "queue",
+      icon: <Clock />,
+      name: "Queue",
+      activeIcon: <ClockFill />,
+      href: "/queue",
+    },
+
     {
       id: "analytics",
       icon: <ClipboardData />,
@@ -74,6 +90,19 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
       activeIcon: <At />,
       href: "/",
     },
+
+    {
+      type: "label",
+      label: "ACCOUNT",
+    },
+
+    {
+      id: "account",
+      icon: <Person />,
+      name: "My Account",
+      activeIcon: <PersonFill/>,
+      href: "/account",
+    },
   ];
 
   const device = useDeviceType();
@@ -82,7 +111,7 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
     if (device.desktop) {
       setIsExpanded(true);
     } else {
-      setIsExpanded(false);
+      setIsExpanded(true);
     }
   }, [device]);
 
@@ -95,6 +124,22 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
       <div className={styles.logo}>TubePilot</div>
       <div className={styles.menu}>
         {menus.map((menu, idx) => {
+          if (menu.type == "label") {
+            return (
+              <div key={menu.label} className={`${styles.label} ${FONTS.font2}`}>
+                <span>{menu.label}</span>
+                <hr/>
+              </div>
+            );
+          }
+          // if (menu.type == "label") {
+          //   return (
+          //     <p key={menu.label} className={`${styles.label} ${FONTS.font1}`}>
+          //       {menu.label}
+          //     </p>
+          //   );
+          // }
+
           const isActive = router.pathname.split("/")?.[1] === menu.id;
 
           if (!isExpanded) {
@@ -152,17 +197,16 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
             {isExpanded && "Logout"}
           </p>
         </div>
-     
       </div>
 
-         <div
-          className={` ${styles.back}`}
-          onClick={() => {
-            setIsExpanded((prev) => !prev);
-          }}
-        >
-          {isExpanded ? <ChevronLeft /> : <ChevronRight />}
-        </div>
+      <div
+        className={` ${styles.back}`}
+        onClick={() => {
+          setIsExpanded((prev) => !prev);
+        }}
+      >
+        {isExpanded ? <ChevronLeft /> : <ChevronRight />}
+      </div>
     </div>
   );
 };
