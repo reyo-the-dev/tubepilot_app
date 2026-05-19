@@ -1,0 +1,59 @@
+.CreateSlides {
+  .slideSelector {
+    display: flex;
+    gap: 20px;
+    overflow: auto;
+    padding-bottom: 20px;
+
+    > div {
+      border: 1px solid $border-mid;
+      padding: 10px 20px;
+      min-width: 120px;
+      cursor: pointer;
+      border-radius: 10px;
+      text-align: center;
+
+      &:hover {
+        background-color: $bg-elevated;
+      }
+
+      &.active {
+        background-color: $primary-core;
+      }
+    }
+  }
+
+  .slidePreview {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+    min-height: 500px;
+
+    .slide {
+      max-width: 300px;
+    }
+
+    .arrows {
+      background-color: $bg-elevated;
+      height: 40px;
+      width: 40px;
+      @include flexCenter;
+      border-radius: 50%;
+      cursor: pointer;
+      &:hover {
+        background-color: $bg-hover;
+      }
+    }
+  }
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.imagePreview {
+  max-width: 500px;
+  margin: auto;
+}

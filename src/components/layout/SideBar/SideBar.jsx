@@ -15,6 +15,8 @@ import {
   ClockFill,
   Grid,
   GridFill,
+  Image,
+  ImageAlt,
   Images,
   List,
   Person,
@@ -60,6 +62,13 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
       name: "Slide Series",
       activeIcon: <Images />,
       href: "/slide-series",
+    },
+    {
+      id: "create-slides",
+      icon: <ImageAlt />,
+      name: "Create Slide",
+      activeIcon: <Images />,
+      href: "/slides/create",
     },
 
     {
