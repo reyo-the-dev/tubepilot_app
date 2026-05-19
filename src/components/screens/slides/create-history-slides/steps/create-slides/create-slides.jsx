@@ -225,9 +225,7 @@ const CreateSlides = ({ handleNext, handleBack, script, setScript }) => {
         <CustomButton onClick={handleBack} variant={2}>
           <ArrowLeft /> Back
         </CustomButton>
-        <CustomButton onClick={handleNext}>
-          Next <ArrowRight />
-        </CustomButton>
+        <div className=""></div>
       </div>
     </div>
   );
