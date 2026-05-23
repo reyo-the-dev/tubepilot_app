@@ -120,7 +120,7 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
     if (device.desktop) {
       setIsExpanded(true);
     } else {
-      setIsExpanded(true);
+      setIsExpanded(false);
     }
   }, [device]);
 

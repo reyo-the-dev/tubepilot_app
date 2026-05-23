@@ -197,14 +197,7 @@ const CreateSlides = ({ handleNext, handleBack, script, setScript }) => {
             updateSlideData("text", v);
           }}
         />
-        <br />
-        <CustomInput
-          value={currentSlide.sub_title}
-          label={"Subtitle"}
-          onChange={(e, v) => {
-            updateSlideData("sub_title", v);
-          }}
-        />
+   
         <br />
         <CustomInput
           value={currentSlide.highlights}
@@ -225,7 +218,10 @@ const CreateSlides = ({ handleNext, handleBack, script, setScript }) => {
         <CustomButton onClick={handleBack} variant={2}>
           <ArrowLeft /> Back
         </CustomButton>
-        <div className=""></div>
+        <CustomButton onClick={handleNext} variant={1}>
+          Next <ArrowRight/>
+        </CustomButton>
+        
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
 
-import React, { useState } from "react";
+import React, { Component, useState } from "react";
 import GenerateScriptStep from "./steps/generate-script/generate-script";
 import CreateSlides from "./steps/create-slides/create-slides";
+import SlidesSummaryStep from "./steps/slides-summary/slides-summary";
 
 const CreateHistorySlides = () => {
   const [topic, setTopic] = useState("");
@@ -26,6 +27,9 @@ const CreateHistorySlides = () => {
     {
       Component: CreateSlides,
     },
+    {
+      Component : SlidesSummaryStep
+    }
   ];
 
   const CurrentStep = steps[currentStepIndex];

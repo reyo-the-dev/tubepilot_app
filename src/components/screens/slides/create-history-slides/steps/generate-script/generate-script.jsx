@@ -126,7 +126,6 @@ const GenerateScriptStep = ({ handleNext, topic, setTopic, script, setScript , i
             <CustomInput label={"Hashtags"} value={script.hashtags} />
             <br />
             <CustomInput label={"Category"} value={script.script.intro.category} />
-           
             <br />
             <p>Total Slides : {script.script.slides.length}</p>
           </CustomBox>
@@ -136,8 +135,7 @@ const GenerateScriptStep = ({ handleNext, topic, setTopic, script, setScript , i
 
           <CustomBox title={`Intro Slide`} leftBorder>
             <CustomTextarea label={"Text"} value={script.script.intro.text} />
-            <br />
-            <CustomTextarea label={"Text"} value={script.script.intro.sub_title} />
+  
             <br />
             <CustomInput
               label={"Highlights"}
