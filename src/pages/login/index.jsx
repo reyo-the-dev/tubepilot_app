@@ -11,7 +11,7 @@ const LoginPage = () => {
     if (session === undefined) return; // wait for session
 
     if (session) {
-      router.replace("/playlist");
+      router.replace("/slides/create");
     }
   }, [session]);
 

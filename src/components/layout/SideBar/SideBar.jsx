@@ -53,7 +53,7 @@ const SideBar = ({ isExpanded, setIsExpanded }) => {
       icon: <CameraVideo />,
       name: "Video Series",
       activeIcon: <CameraVideoFill />,
-      href: "/playlist",
+      href: "/videos",
     },
 
     {
