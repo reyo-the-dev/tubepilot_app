@@ -51,7 +51,7 @@ const CreateSlides = ({ handleNext, handleBack, script, setScript }) => {
       imagePrompt,
     });
 
-    updateSlideData("imageUrl", imageRes?.data?.output?.image_url);
+    updateSlideData("imageUrl", imageRes?.data?.output?.result);
   };
 
   const generateSlide = async () => {
